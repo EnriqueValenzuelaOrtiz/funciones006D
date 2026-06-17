@@ -33,7 +33,8 @@ def solicitar_opcion(opcion):
 #Función Validación Nombre
 def validar_nombre(nombre):
     
-    return nombre.strip() != ""
+    return nombre.strip() != "" != int()
+
     """strip() -> eliminar todos los espacios en blanco al inicio y al final de un string y
     retorna True si es válido o False si no"""
 
@@ -52,29 +53,36 @@ def validar_edad(edad):
     díjitos numéricos (utilizando .isdijit), además, se asegura de que sea un entero positivo (utilizando
     int(edad)), y tambien que sea mayor a cero"""
 
+##----------------------------------------------PROCESO---------------------------------------------##
+
 #Función Opción == 1 (Agregar Mascota)
 def agregar_mascota(lista_m):
     
-    #solicitamos los datos
-    nombre = input("Ingrese el nombre de su mascota: ")
+    #Solicitamos y Validamos Nombre
+    nombre = input("Ingrese el nombre de su mascota: \n")
     correcta = validar_nombre(nombre)
+    print("")
     if not correcta:
-        print("El nombre no puede estar en blanco")
+        print("El nombre no puede estar en blanco ni tener números")
         return
     
-    especie = input("Ingrese la especie (perro,gato o ave)")
+    #Solicitamos y Validamos Especie
+    especie = input("Ingrese la especie (perro, gato o ave): \n")
     correcta = validar_especie(especie)
+    print("")
     if not correcta:
         print("La especie solo puede ser perro, gato o ave")
         return
     
-    edad = input("Ingrese la edad de la mascota: ")
+    #Solicitamos y Validamos Edad
+    edad = input("Ingrese la edad de la mascota: \n")
     correcta = validar_edad(edad)
+    print("")
     if not correcta:
         print("La edad debe ser un número entero mayor a cero")
         return
     
-    #agregar los datos al diccionario
+    #Pasadas las Validaciones, Agregar al Diccionario
     mascota = {
         "nombre": nombre.strip(),
         "especie": especie.strip().lower(),
@@ -82,35 +90,20 @@ def agregar_mascota(lista_m):
         "vacunada": False
     }
     
-    #agrego a la lista
+    #Agrego a la Lista
     lista_m.append(mascota)
     print("Mascota agregada correctamente")
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+##--------------------------------------------SALIDA---------------------------------------##
 
 #Código Principal
 datos_mascota=[]
 op=0
 while op!=6:
     menu()
-    op=solicitar_opcion()
+    op=solicitar_opcion(op)
 
-#declarar la lista de mascotas
     if op == 1:
         agregar_mascota(datos_mascota)
     elif op == 2:
