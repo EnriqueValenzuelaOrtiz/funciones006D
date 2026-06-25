@@ -56,16 +56,16 @@ def agregar_reserva(lista_r):
         try:
             nombre_completo = input("Ingrese el nombre completo del Huesped: \n").strip()          
             print("")
-
+            
+            if nombre_completo !="" and nombre_completo.replace(" ","").isalpha():
+                break
+            
+            else:
+                raise ValueError
+        
         except ValueError:
             print("Dijite un nombre válido")
             print("")
-        
-        if nombre_completo !="" and nombre_completo :
-            break
-            
-        else:
-            raise ValueError
         
     """correcto = validar_huesped(nombre_completo)
     
