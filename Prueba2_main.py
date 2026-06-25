@@ -46,12 +46,20 @@ while opcion!=6:
 
     elif opcion==4:
         #Llamar Función Actualizar Confirmación
-        p.confirmar_reservas(lista_reservas)
-        print("Reservas actualizadas correctamente")
+        if len(lista_reservas)==0:
+            print("No hay ninguna resrva efectuada")
+        
+        else:
+            p.confirmar_reservas(lista_reservas)
+            print("Reservas actualizadas correctamente")
 
     elif opcion==5:
-        p.confirmar_reservas(lista_reservas)
-        p.mostrar_reservas(lista_reservas)
+        if len(lista_reservas)==0:
+            print("No hay ninguna resrva efectuada")
+        
+        else:
+            p.confirmar_reservas(lista_reservas)
+            p.mostrar_reservas(lista_reservas)
 
     elif opcion==6:
         print("Gracias por utilizar el sistema")
